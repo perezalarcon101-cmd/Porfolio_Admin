@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body style="padding: 50px; background: #161625; color: white;">
+    <h1>Admin Dashboard</h1>
+
+    <form method="POST">
+        <h3>Edit About Me:</h3>
+        <textarea name="about_content" rows="10" style="width: 100%; border-radius: 10px; padding: 10px;">{{ about.content if about }}</textarea>
+        <br><br>
+        <button type="submit" style="padding: 10px 20px; background: #00d2ff; border: none; cursor: pointer;">SAVE CHANGES</button>
+    </form>
+
+    <hr style="margin: 40px 0; border: 0.5px solid #333;">
+
+    <div class="admin-section">
+        <h3>Manage Skills</h3>
+        </div>
+
+    <br>
+    <a href="/" style="color: gray;">Back to Website</a>
+
+    <h3>Manage Skills</h3>
+    
+    <form action="/add_skill" method="POST" style="background: #252538; padding: 20px; border-radius: 10px;">
+        <input type="text" name="skill_name" placeholder="Skill Name (e.g. Java)" required 
+               style="padding: 10px; width: 40%; border-radius: 5px; border: none;">
+        
+        <input type="text" name="skill_icon" placeholder="FontAwesome Icon (e.g. fab fa-java)" 
+               style="padding: 10px; width: 40%; border-radius: 5px; border: none;">
+        
+        <button type="submit" style="padding: 10px 20px; background: #00d2ff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            ADD SKILL
+        </button>
+    </form>
+
+    <br>
+    
+    <table style="width: 100%; text-align: left; margin-top: 20px; border-collapse: collapse;">
+        <tr style="border-bottom: 1px solid #444;">
+            <th style="padding: 10px;">Skill</th>
+            <th style="padding: 10px;">Icon Class</th>
+            <th style="padding: 10px;">Action</th>
+        </tr>
+        {% for skill in skills %}
+        <tr style="border-bottom: 1px solid #333;">
+            <td style="padding: 10px;">{{ skill.name }}</td>
+            <td style="padding: 10px;"><code>{{ skill.icon_class }}</code></td>
+            <td style="padding: 10px;">
+                <a href="/delete_skill/{{ skill.id }}" style="color: #ff4d4d; text-decoration: none; font-weight: bold;">DELETE</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>

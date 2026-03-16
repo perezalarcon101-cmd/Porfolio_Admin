@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perez | Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">PORTFOLIO</div>
+        <ul>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#skills">SKILLS</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" class="section hero">
+        <div class="hero-content">
+            <img src="{{ url_for('static', filename='image.jpg') }}" ...> 
+            <div class="intro-text">
+                <h1>ABOUT MY SELF</h1>
+                <p>Hello! I am Perez John Cristhoper A. I am a passionate student from BAIT-1B, focusing on building
+                    creative digital experiences.</p>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <div class="container about-grid">
+            <div class="text-block">
+                <h2>ABOUT MY SELF</h2>
+                <h3>Hobbies / Interests</h3>
+                <p></p>
+                <p>{{ about.content }}</p>
+
+            </div>
+            <div class="photo-gallery">
+                <div class="box"><img src="{{ url_for('static', filename='image2.jpg') }}" alt="Hobby 1"></div>
+                <div class="box"><img src="{{ url_for('static', filename='image3.jpg') }}" alt="Hobby 1"></div>
+                <div class="box"><img src="{{ url_for('static', filename='image2.jpg') }}" alt="Hobby 1"></div>
+                <div class="box"><img src="{{ url_for('static', filename='image3.jpg') }}" alt="Hobby 1"></div>
+                <div class="box"><img src="{{ url_for('static', filename='image2.jpg') }}" alt="Hobby 1"></div>
+                <div class="box"><img src="{{ url_for('static', filename='image3.jpg') }}" alt="Hobby 1"></div>
+                
+            </div>
+        </div>
+ </section>
+
+    <section id="skills" class="section">
+        <div class="container skills-grid">
+        <div class="skills-text">
+            <h2>SKILLS</h2>
+            <div class="skills-list">
+                {% for skill in skills %}
+                <div class="skill-item">
+                    <i class="{{ skill.icon_class }}" style="font-size: 2rem; color: #00d2ff;"></i> <h3>{{ skill.name }}</h3> </div>
+                {% endfor %}
+
+                <div class="skill-item">
+                    <h3>Learning:</h3>
+                    <p>Web Development & UI Design</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Development:</h3>
+                    <p>HTML, CSS, JavaScript, Python</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Achievement:</h3>
+                    <p>Certified Problem Solver</p>
+                </div>
+               <div class="skill-item">
+                   <h3>Certificate:</h3>
+                   <h3>Apollo-2026: Blueprint of Insights</h3>
+                   <P>Organized by the QCU(LESIT)</P>
+                   <P>Date: February 9,2026</P>
+                   <h3>Introduction to Python</h3>
+                <p>Issued by SoloLearn</p>
+                <p>Date: February 12, 2026</p>
+               </div>
+              </div>
+            </div>
+            
+            <div class="skills-visual">
+             <img src="{{ url_for('static', filename='programmer.jpeg') }}" alt="Skills">
+        </div>
+    </div>
+    </section>
+    <footer id="contact" class="footer">
+        <div class="contact-info">
+            <h2>CONTACT: </h2>
+            <p>Contact Number: 09604068041</p>
+            <p>Contact Number: 09920305934</p>
+            <p>Email: perezalarcon@gmail.com</p>
+        </div>
+          <div class="social-media">
+            <a href="https://www.facebook.com/john.perez.295474" target="_blank" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/rezpe._____/" target="_blank" class="social-icon">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://github.com/perezalarcon101-cmd" target="_blank" class="social-icon">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+    </div>
+    <p>&copy; 2026 Perez Portfolio | <a href="{{ url_for('login') }}" style="color: inherit; text-decoration: none;">Admin Login</a></p>
+    </footer>
+
+</body>
+
+</html>
